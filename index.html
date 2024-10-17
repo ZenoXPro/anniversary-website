@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anniversary</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+      h1,
+      h2 {
+        color: #ff69b4;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: #4caf50;
+        color: white;
+        margin-top: 10px;
+      }
+      #try-again-section button {
+        background-color: #ff9800;
+      }
+      .no-button {
+        background-color: #f44336;
+      }
+      .hidden {
+        display: none;
+      }
+      .gif-slot {
+        margin-bottom: 20px;
+      }
+      img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 10px;
+      }
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        margin: 10px 0;
+        height: 5px;
+        border-radius: 5px;
+        background: #ddd;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #4caf50;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      #love-value-display {
+        font-size: 24px;
+        margin-top: 10px;
+        color: #d33;
+      }
+      #love-message {
+        font-size: 18px;
+        margin-top: 10px;
+        color: #d33;
+      }
+      .slide-container {
+        margin: 20px 0;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="section-1">
+        <h1>Selamat Anniversary!</h1>
+        <div class="gif-slot">
+          <img src="assets/1.gif" alt="Gif 1" />
+        </div>
+        <button onclick="nextSection(2)">Next</button>
+      </div>
+      <div id="section-2" class="hidden">
+        <h2>Apakah kamu sayang aku?</h2>
+        <div class="gif-slot">
+          <img src="assets/2.jpg" alt="Gif 2" />
+        </div>
+        <button id="yes-btn" onclick="nextSection(3)">Ya</button>
+        <button id="no-btn" class="no-button" onclick="showTryAgain()">Tidak</button>
+      </div>
+      <div id="section-3" class="hidden">
+        <h2>Saya sangat bahagia memilikinya!</h2>
+        <div class="gif-slot">
+          <img src="assets/5.gif" alt="Gif 3" />
+        </div>
+        <button onclick="nextSection(4)">Next</button>
+      </div>
+      <div id="section-4" class="hidden">
+        <h2>Seberapa sayang kamu ke aku?</h2>
+        <div class="gif-slot">
+          <img src="assets/4.gif" alt="Gif 4" />
+        </div>
+        <input type="range" min="0" max="100" id="loveValue" oninput="checkLove()" />
+        <p id="love-value-display">0%</p>
+        <p id="love-message"></p>
+        <button id="next-button" onclick="nextSection(5)" disabled>Next</button>
+      </div>
+      <div id="section-5" class="hidden">
+        <h2>Slide Foto Kita Berdua</h2>
+        <div class="slide-container">
+          <div class="grid">
+            <img src="assets/fot1.jpg" alt="Foto 1">
+            <img src="assets/fot2.jpg" alt="Foto 2">
+            <img src="assets/fot3.jpg" alt="Foto 3">
+            <img src="assets/fot4.jpg" alt="Foto 4">
+          </div>
+        </div>
+        <button onclick="nextSection(6)">Next</button>
+      </div>
+      <div id="section-6" class="hidden">
+        <h2>5 Tahun Hubungan: Apa yang paling kamu suka dari aku?</h2>
+        <div class="gif-slot">
+          <img src="gif6.gif" alt="Gif 6" />
+        </div>
+        <textarea id="message" rows="3" placeholder="Jawabanmu..."></textarea>
+        <button onclick="nextSection(7)">Next</button>
+      </div>
+      <div id="section-7" class="hidden">
+        <h2>Mau kado apa?</h2>
+        <div class="gif-slot">
+          <img src="gif7.gif" alt="Gif 7" />
+        </div>
+        <input type="text" id="gift" placeholder="Tulis kado yang kamu inginkan..." />
+        <button onclick="nextSection(8)">Next</button>
+      </div>
+      <div id="section-8" class="hidden">
+        <h2>Pesan untuk Hubungan Kita</h2>
+        <div class="gif-slot">
+          <img src="gif8.gif" alt="Gif 8" />
+        </div>
+        <textarea id="relationshipMessage" rows="3" placeholder="Tulis pesan untuk hubungan kita..."></textarea>
+        <button onclick="nextSection(9)">Next</button>
+      </div>
+      <div id="section-9" class="hidden">
+        <h2>Pesan dari Saya</h2>
+        <div class="gif-slot">
+          <img src="gif9.gif" alt="Gif 9" />
+        </div>
+        <p>
+          Terima kasih sudah bersamku selama ini, aku sangat bahagia memiliki kamu di hidupku. Yuk kita terus berjalan bersama, menyusuri perjalanan cinta kita yang indah. Love you always!
+        </p>
+        <button onclick="saveAll()">Kirim</button>
+      </div>
+      <div id="section-10" class="hidden">
+        <h2>Penutup</h2>
+        <div class="gif-slot">
+          <img src="gif10.gif" alt="Gif 10" />
+        </div>
+        <p>
+          Selesai! Selamat merayakan anniversary kita. Aku sangat mencintaimu!
+        </p>
+      </div>
+      <div id="try-again-section" class="hidden">
+        <h2>Kamu bohong, coba lagi!</h2>
+        <div class="gif-slot">
+          <img src="assets/3.jpg" alt="Gif 11" />
+        </div>
+        <button onclick="retry()">Coba Lagi</button>
+      </div>
+    </div>
+
+    <script>
+      let currentSection = 1;
+
+      function nextSection(section) {
+        document.getElementById(`section-${currentSection}`).classList.add("hidden");
+        document.getElementById(`section-${section}`).classList.remove("hidden");
+        currentSection = section;
+
+        if (section === 2) {
+          document.getElementById("try-again-section").classList.add("hidden");
+        }
+      }
+
+      function showTryAgain() {
+        document.getElementById(`section-${currentSection}`).classList.add("hidden");
+        document.getElementById("try-again-section").classList.remove("hidden");
+      }
+
+      function retry() {
+        currentSection = 2;
+        nextSection(currentSection);
+      }
+
+      function checkLove() {
+        const loveValue = document.getElementById("loveValue").value;
+        document.getElementById("love-value-display").innerText = loveValue + "%";
+
+        if (loveValue >= 80) {
+          document.getElementById("next-button").disabled = false;
+          document.getElementById("love-message").innerText = "Akhirnya kamu sayang banget!";
+        } else {
+          document.getElementById("next-button").disabled = true;
+          document.getElementById("love-message").innerText = "Kamu harus lebih sayang lagi!";
+        }
+      }
+
+      function saveAll() {
+        const loveValue = document.getElementById("loveValue").value;
+        const message = document.getElementById("message").value;
+        const gift = document.getElementById("gift").value;
+        const relationshipMessage = document.getElementById("relationshipMessage").value;
+
+        // Buat objek data
+        const data = {
+          loveValue: loveValue,
+          message: message,
+          gift: gift,
+          relationshipMessage: relationshipMessage,
+        };
+
+        // Simpan data ke server
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "save_data.php", true); // Ganti dengan URL endpoint server Anda
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            nextSection(10);
+          }
+        };
+        xhr.send(JSON.stringify(data));
+      }
+    </script>
+  </body>
+</html>

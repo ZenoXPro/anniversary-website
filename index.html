@@ -114,7 +114,9 @@
           <img src="assets/2.jpg" alt="Gif 2" />
         </div>
         <button id="yes-btn" onclick="nextSection(3)">Iya Dung ❤️</button>
-        <button id="no-btn" class="no-button" onclick="showTryAgain()">Gak, Mls</button>
+        <button id="no-btn" class="no-button" onclick="showTryAgain()">
+          Gak, Mls
+        </button>
       </div>
       <div id="section-3" class="hidden">
         <h2>Yeeeyy maaciii seneng deh 🤗</h2>
@@ -128,7 +130,13 @@
         <div class="gif-slot">
           <img src="assets/4.gif" alt="Gif 4" />
         </div>
-        <input type="range" min="0" max="100" id="loveValue" oninput="checkLove()" />
+        <input
+          type="range"
+          min="0"
+          max="100"
+          id="loveValue"
+          oninput="checkLove()"
+        />
         <p id="love-value-display">0%</p>
         <p id="love-message"></p>
         <button id="next-button" onclick="nextSection(5)" disabled>Next</button>
@@ -137,10 +145,10 @@
         <h2>Slide Foto Kita Berdua</h2>
         <div class="slide-container">
           <div class="grid">
-            <img src="assets/fot1.jpg" alt="Foto 1">
-            <img src="assets/fot2.jpg" alt="Foto 2">
-            <img src="assets/fot3.jpg" alt="Foto 3">
-            <img src="assets/fot4.jpg" alt="Foto 4">
+            <img src="assets/fot1.jpg" alt="Foto 1" />
+            <img src="assets/fot2.jpg" alt="Foto 2" />
+            <img src="assets/fot3.jpg" alt="Foto 3" />
+            <img src="assets/fot4.jpg" alt="Foto 4" />
           </div>
         </div>
         <button onclick="nextSection(6)">Next</button>
@@ -158,7 +166,11 @@
         <div class="gif-slot">
           <img src="assets/7.gif" alt="Gif 7" />
         </div>
-        <input type="text" id="gift" placeholder="Tulis kado yang kamu inginkan..." />
+        <input
+          type="text"
+          id="gift"
+          placeholder="Tulis kado yang kamu inginkan..."
+        />
         <button onclick="nextSection(8)">Next</button>
       </div>
       <div id="section-8" class="hidden">
@@ -166,7 +178,11 @@
         <div class="gif-slot">
           <img src="assets/8.gif" alt="Gif 8" />
         </div>
-        <textarea id="relationshipMessage" rows="3" placeholder="Tulis pesan untuk hubungan kita..."></textarea>
+        <textarea
+          id="relationshipMessage"
+          rows="3"
+          placeholder="Tulis pesan untuk hubungan kita..."
+        ></textarea>
         <button onclick="nextSection(9)">Next</button>
       </div>
       <div id="section-9" class="hidden">
@@ -175,7 +191,11 @@
           <img src="assets/9.gif" alt="Gif 9" />
         </div>
         <p>
-          Maaci untuk 5 tahun ini sayankuh icha, memang makin nambah tahunnya cobaan makin berat, jangan selalu berdiri sendiri ya untuk hubungan kita jangan capek buat saling memperbaiki saling melengkapi. Semoga tahun yang baru makin banyak hal baik dalam hubungan kita 🤲 Luuppp yuuu soo muchh sayaankuh ❤️💖💞
+          Maaci untuk 5 tahun ini sayankuh icha, memang makin nambah tahunnya
+          cobaan makin berat, jangan selalu berdiri sendiri ya untuk hubungan
+          kita jangan capek buat saling memperbaiki saling melengkapi. Semoga
+          tahun yang baru makin banyak hal baik dalam hubungan kita 🤲 Luuppp
+          yuuu soo muchh sayaankuh ❤️💖💞
         </p>
         <button onclick="saveAll()">Kirim</button>
       </div>
@@ -184,9 +204,7 @@
         <div class="gif-slot">
           <img src="assets/10.jpg" alt="Gif 10" />
         </div>
-        <p>
-          Selesai deh, pesannya udah di kirim ke cuwu tersayang mu 😊
-        </p>
+        <p>Selesai deh, pesannya udah di kirim ke cuwu tersayang mu 😊</p>
       </div>
       <div id="try-again-section" class="hidden">
         <h2>Boong ikh yang bener dong 😒</h2>
@@ -201,8 +219,12 @@
       let currentSection = 1;
 
       function nextSection(section) {
-        document.getElementById(`section-${currentSection}`).classList.add("hidden");
-        document.getElementById(`section-${section}`).classList.remove("hidden");
+        document
+          .getElementById(`section-${currentSection}`)
+          .classList.add("hidden");
+        document
+          .getElementById(`section-${section}`)
+          .classList.remove("hidden");
         currentSection = section;
 
         if (section === 2) {
@@ -211,7 +233,9 @@
       }
 
       function showTryAgain() {
-        document.getElementById(`section-${currentSection}`).classList.add("hidden");
+        document
+          .getElementById(`section-${currentSection}`)
+          .classList.add("hidden");
         document.getElementById("try-again-section").classList.remove("hidden");
       }
 
@@ -222,19 +246,22 @@
 
       function checkLove() {
         const loveValue = document.getElementById("loveValue").value;
-        document.getElementById("love-value-display").innerText = loveValue + "%";
+        document.getElementById("love-value-display").innerText =
+          loveValue + "%";
 
         if (loveValue >= 80) {
-            if (loveValue == 100) {
-                document.getElementById("next-button").disabled = false;
-                document.getElementById("love-message").innerText = "Sayaang poll yaaa 🔥🔥";
-            } else {
-                document.getElementById("next-button").disabled = false;
-                document.getElementById("love-message").innerText = "Sayang buangeet yaa 😍";
-            }
+          if (loveValue == 100) {
+            document.getElementById("next-button").disabled = false;
+            document.getElementById("love-message").innerText =
+              "Sayaang poll yaaa 🔥🔥";
+          } else {
+            document.getElementById("next-button").disabled = false;
+            document.getElementById("love-message").innerText =
+              "Sayang buangeet yaa 😍";
+          }
         } else {
-            document.getElementById("next-button").disabled = true;
-            document.getElementById("love-message").innerText = "Kurang dih 😒";
+          document.getElementById("next-button").disabled = true;
+          document.getElementById("love-message").innerText = "Kurang dih 😒";
         }
       }
 
@@ -242,26 +269,27 @@
         const loveValue = document.getElementById("loveValue").value;
         const message = document.getElementById("message").value;
         const gift = document.getElementById("gift").value;
-        const relationshipMessage = document.getElementById("relationshipMessage").value;
+        const relationshipMessage = document.getElementById(
+          "relationshipMessage"
+        ).value;
 
-        // Buat objek data
-        const data = {
-          loveValue: loveValue,
-          message: message,
-          gift: gift,
-          relationshipMessage: relationshipMessage,
-        };
+        const data = `
+          Love Value: ${loveValue}%
+          Favorite Thing About Partner: ${message}
+          Desired Gift: ${gift}
+          Relationship Message: ${relationshipMessage}
+        `;
 
-        // Simpan data ke server
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "save_data.php", true); // Ganti dengan URL endpoint server Anda
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            nextSection(10);
-          }
-        };
-        xhr.send(JSON.stringify(data));
+        // Create a Blob and download the file
+        const blob = new Blob([data], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "anniversary_message.txt";
+        a.click();
+        URL.revokeObjectURL(url);
+
+        nextSection(10); // Move to section 10 after saving
       }
     </script>
   </body>

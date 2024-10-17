@@ -102,29 +102,29 @@
   <body>
     <div class="container">
       <div id="section-1">
-        <h1>Selamat Anniversary!</h1>
+        <h1>Happy Anniversary yang Ke 5 Sayankuh ❤️😍</h1>
         <div class="gif-slot">
           <img src="assets/1.gif" alt="Gif 1" />
         </div>
         <button onclick="nextSection(2)">Next</button>
       </div>
       <div id="section-2" class="hidden">
-        <h2>Apakah kamu sayang aku?</h2>
+        <h2>Sayang Gak Sama Mbuu ? 🤔</h2>
         <div class="gif-slot">
           <img src="assets/2.jpg" alt="Gif 2" />
         </div>
-        <button id="yes-btn" onclick="nextSection(3)">Ya</button>
-        <button id="no-btn" class="no-button" onclick="showTryAgain()">Tidak</button>
+        <button id="yes-btn" onclick="nextSection(3)">Iya Dung ❤️</button>
+        <button id="no-btn" class="no-button" onclick="showTryAgain()">Gak, Mls</button>
       </div>
       <div id="section-3" class="hidden">
-        <h2>Saya sangat bahagia memilikinya!</h2>
+        <h2>Yeeeyy maaciii seneng deh 🤗</h2>
         <div class="gif-slot">
           <img src="assets/5.gif" alt="Gif 3" />
         </div>
-        <button onclick="nextSection(4)">Next</button>
+        <button onclick="nextSection(4)">Lanjutt</button>
       </div>
       <div id="section-4" class="hidden">
-        <h2>Seberapa sayang kamu ke aku?</h2>
+        <h2>Emang Seberapa Banyak Cii ?</h2>
         <div class="gif-slot">
           <img src="assets/4.gif" alt="Gif 4" />
         </div>
@@ -146,9 +146,9 @@
         <button onclick="nextSection(6)">Next</button>
       </div>
       <div id="section-6" class="hidden">
-        <h2>5 Tahun Hubungan: Apa yang paling kamu suka dari aku?</h2>
+        <h2>Apa yang paling ayank suka dari mbuu dan jangan diubah</h2>
         <div class="gif-slot">
-          <img src="gif6.gif" alt="Gif 6" />
+          <img src="assets/6.gif" alt="Gif 6" />
         </div>
         <textarea id="message" rows="3" placeholder="Jawabanmu..."></textarea>
         <button onclick="nextSection(7)">Next</button>
@@ -156,7 +156,7 @@
       <div id="section-7" class="hidden">
         <h2>Mau kado apa?</h2>
         <div class="gif-slot">
-          <img src="gif7.gif" alt="Gif 7" />
+          <img src="assets/7.gif" alt="Gif 7" />
         </div>
         <input type="text" id="gift" placeholder="Tulis kado yang kamu inginkan..." />
         <button onclick="nextSection(8)">Next</button>
@@ -164,36 +164,36 @@
       <div id="section-8" class="hidden">
         <h2>Pesan untuk Hubungan Kita</h2>
         <div class="gif-slot">
-          <img src="gif8.gif" alt="Gif 8" />
+          <img src="assets/8.gif" alt="Gif 8" />
         </div>
         <textarea id="relationshipMessage" rows="3" placeholder="Tulis pesan untuk hubungan kita..."></textarea>
         <button onclick="nextSection(9)">Next</button>
       </div>
       <div id="section-9" class="hidden">
-        <h2>Pesan dari Saya</h2>
+        <h2>Pesan dari Mbuu 💌</h2>
         <div class="gif-slot">
-          <img src="gif9.gif" alt="Gif 9" />
+          <img src="assets/9.gif" alt="Gif 9" />
         </div>
         <p>
-          Terima kasih sudah bersamku selama ini, aku sangat bahagia memiliki kamu di hidupku. Yuk kita terus berjalan bersama, menyusuri perjalanan cinta kita yang indah. Love you always!
+          Maaci untuk 5 tahun ini sayankuh icha, memang makin nambah tahunnya cobaan makin berat, jangan selalu berdiri sendiri ya untuk hubungan kita jangan capek buat saling memperbaiki saling melengkapi. Semoga tahun yang baru makin banyak hal baik dalam hubungan kita 🤲 Luuppp yuuu soo muchh sayaankuh ❤️💖💞
         </p>
         <button onclick="saveAll()">Kirim</button>
       </div>
       <div id="section-10" class="hidden">
         <h2>Penutup</h2>
         <div class="gif-slot">
-          <img src="gif10.gif" alt="Gif 10" />
+          <img src="assets/10.jpg" alt="Gif 10" />
         </div>
         <p>
-          Selesai! Selamat merayakan anniversary kita. Aku sangat mencintaimu!
+          Selesai deh, pesannya udah di kirim ke cuwu tersayang mu 😊
         </p>
       </div>
       <div id="try-again-section" class="hidden">
-        <h2>Kamu bohong, coba lagi!</h2>
+        <h2>Boong ikh yang bener dong 😒</h2>
         <div class="gif-slot">
           <img src="assets/3.jpg" alt="Gif 11" />
         </div>
-        <button onclick="retry()">Coba Lagi</button>
+        <button onclick="retry()">Coba Lagi 😊</button>
       </div>
     </div>
 
@@ -225,11 +225,16 @@
         document.getElementById("love-value-display").innerText = loveValue + "%";
 
         if (loveValue >= 80) {
-          document.getElementById("next-button").disabled = false;
-          document.getElementById("love-message").innerText = "Akhirnya kamu sayang banget!";
+            if (loveValue == 100) {
+                document.getElementById("next-button").disabled = false;
+                document.getElementById("love-message").innerText = "Sayaang poll yaaa 🔥🔥";
+            } else {
+                document.getElementById("next-button").disabled = false;
+                document.getElementById("love-message").innerText = "Sayang buangeet yaa 😍";
+            }
         } else {
-          document.getElementById("next-button").disabled = true;
-          document.getElementById("love-message").innerText = "Kamu harus lebih sayang lagi!";
+            document.getElementById("next-button").disabled = true;
+            document.getElementById("love-message").innerText = "Kurang dih 😒";
         }
       }
 
